@@ -2,45 +2,122 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Фотоальбом</title>
+<title>Pour mon Chéri</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
 <style>
 body {
+    margin: 0;
     font-family: Arial;
-    background: #f5f5f5;
+    background: linear-gradient(#fff0f5, #ffe4e1);
     text-align: center;
 }
 
+/* Заголовок */
 h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
     margin-top: 30px;
+    color: #d63384;
 }
 
+/* Галерея */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    padding: 20px;
+    gap: 20px;
+    padding: 30px;
 }
 
 .gallery img {
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 15px;
+}
+
+.lightbox:target {
+    display: block;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    font-size: 45px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Сердечки */
+.hearts {
+    font-size: 25px;
+    color: #ff6b81;
+    margin-bottom: 15px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Мой фотоальбом</h1>
+<h1>Pour mon Chéri</h1>
+
+<div class="hearts">❤️ ❤️ ❤️</div>
 
 <div class="gallery">
 
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-<img src="photo4.jpg">
+<a href="#img1"><img src="photo1.jpg"></a>
+<a href="#img2"><img src="photo2.jpg"></a>
+<a href="#img3"><img src="photo3.jpg"></a>
+<a href="#img4"><img src="photo4.jpg"></a>
 
+</div>
+
+<!-- Lightbox окна -->
+
+<div id="img1" class="lightbox">
+<a href="#" class="close">×</a>
+<img src="photo1.jpg">
+</div>
+
+<div id="img2" class="lightbox">
+<a href="#" class="close">×</a>
+<img src="photo2.jpg">
+</div>
+
+<div id="img3" class="lightbox">
+<a href="#" class="close">×</a>
+<img src="photo3.jpg">
+</div>
+
+<div id="img4" class="lightbox">
+<a href="#" class="close">×</a>
+<img src="photo4.jpg">
 </div>
 
 </body>
